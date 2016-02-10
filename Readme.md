@@ -65,6 +65,11 @@ Options:
   -P, --path                 Path to serve slackin under
   -s, --silent               Do not print out warns or errors
   -c, --css <file>           Full URL to a custom CSS file to use on the main page
+  --url <url>                Full URL to ActiveDirectory controller
+  --username <username>      Username of the AD user that will make queries
+  --password <password>      Password of the AD user
+  --baseDN <baseDN>          Base DN to search from in AD, ie: 'dc=domain,dc=com'
+  --slackGroup <SlackGroup>  The AD group name to search
 ```
 
 **Important: if you use Slackin in single-channel mode, you'll only be
@@ -108,6 +113,11 @@ Point to `https://slack.yourdomain.com`.
 **Note:** the image for the logo of the landing page
 is retrieved from the Slack API. If your organization
 doesn't have one configured, it won't be shown.
+
+## Active Directory
+The email will be checked against the Active Directory controller
+and baseDN to make sure they are a member of the slackGroup.  If not, an error
+message is displayed.  If so, the invite is sent via the Slack API.
 
 ## API
 
