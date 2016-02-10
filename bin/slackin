@@ -16,6 +16,11 @@ program
 .option('-s, --silent', 'Do not print out warns or errors')
 .option('-C, --coc <coc>', 'Full URL to a CoC that needs to be agreed to')
 .option('-c, --css <file>', 'Full URL to a custom CSS file to use on the main page')
+.option('--url <url>', 'Full URL to ActiveDirectory controller', 'ldap://some.domain.controller')
+.option('--username <username>', 'Username of the AD user that will make queries', 'user@ipreo.com')
+.option('--password <password>', 'Password of the AD user', 'password')
+.option('--baseDN <baseDN>', 'Base DN to search from in AD', 'dc=domain,dc=com')
+.option('--slackGroup <SlackGroupName>', 'The AD group name to search', 'SlackUsers')
 .parse(process.argv);
 
 var org = program.args[0] || process.env.SLACK_SUBDOMAIN;
